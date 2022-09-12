@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-function App() {
+const todos = [
+  {text: 'Cortar cebolla', completed: false},
+  {text: 'Tomar el curso de intro React', completed: false},
+  {text: 'Llorar con la llorona', completed: false}
+]
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <TodoCounter/> */}
+      <h2>Haz completado 2 de 3 TODOs</h2>
+      {/* <TodoSearch /> */}
+      <input placeholder='Cebolla'/>
+      {/* <TodoList>
+        {todos.map(todo=>(
+          <TodoItem />
+        ))}
+      </TodoList> */}
+      {/* <CreateTodoButton/> */}
+      <button>+</button>
+    </>
   );
 }
-
-export default App;
