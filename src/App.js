@@ -1,26 +1,36 @@
-import React from 'react';
-import './App.css';
-
+import React from "react";
+import { TodoCounter } from "./components/TodoCounter";
+import { TodoSearch } from "./components/TodoSearch";
+import { TodoList } from "./components/TodoList";
+import { TodoItem } from "./components/TodoItem";
+import { CreateTodoButton } from "./components/CreateTodoButtom";
+//import './App.css';
 const todos = [
-  {text: 'Cortar cebolla', completed: false},
-  {text: 'Tomar el curso de intro React', completed: false},
-  {text: 'Llorar con la llorona', completed: false}
-]
+  { text: 'Cortar cebolla', completed: true },
+  { text: 'Tomar el cursso de intro a React', completed: false },
+  { text: 'Llorar con la llorona', completed: false },
+  { text: 'LALALALAA', completed: false },
+];
 
-export const App = () => {
+function App() {
   return (
-    <>
-      {/* <TodoCounter/> */}
-      <h2>Haz completado 2 de 3 TODOs</h2>
-      {/* <TodoSearch /> */}
-      <input placeholder='Cebolla'/>
-      {/* <TodoList>
-        {todos.map(todo=>(
-          <TodoItem />
+    <React.Fragment>
+      <TodoCounter />
+      <TodoSearch />
+
+      <TodoList>
+        {todos.map(todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+          />
         ))}
-      </TodoList> */}
-      {/* <CreateTodoButton/> */}
-      <button>+</button>
-    </>
+      </TodoList>
+
+      <CreateTodoButton />
+    </React.Fragment>
   );
 }
+
+export default App;
