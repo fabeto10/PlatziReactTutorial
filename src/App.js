@@ -17,7 +17,6 @@ function App() {
     <React.Fragment>
       <TodoCounter />
       <TodoSearch />
-
       <TodoList>
         {todos.map(todo => (
           <TodoItem
@@ -27,7 +26,6 @@ function App() {
           />
         ))}
       </TodoList>
-
       <CreateTodoButton />
     </React.Fragment>
   );
