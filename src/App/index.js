@@ -8,19 +8,33 @@ import { AppUI } from "./AppUI";
 //   { text: 'LALALALAA', completed: false },
 // ];
 
-function App() {
-  const localStorangeTodos = localStorage.getItem('TODOS_V1');
-
-  let parsedTodos;
-
-  if(!localStorangeTodos){
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
+function useLocalStorage(itemName, initialValue) {
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
+  
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
   } else {
-    parsedTodos = JSON.parse(localStorangeTodos);
+    parsedItem = JSON.parse(localStorageItem);
+  }
+
+  const [item, setItem] = React.useState(parsedItem);
+
+  const saveItem = (newItem) => {
+    const stringifiedItem = JSON.stringify(newItem);
+    localStorage.setItem(itemName, stringifiedItem);
+    setItem(newItem);
   };
 
-  const [todos, setTodos] = React.useState(parsedTodos);
+  return [
+    item,
+    saveItem
+  ];
+}
+
+function App() {
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
 
   const [searchValue, setSearchValue] = React.useState('');
 
@@ -40,11 +54,6 @@ function App() {
     });
   }
 
-  const saveTodos = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
-  };
   
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
@@ -63,6 +72,14 @@ function App() {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
+
+  console.log('Render (antes del use effect)')
+
+  React.useEffect(() => {
+    console.log('use effect');
+  }, [totalTodos]);
+
+  console.log('luego del useEffect')
 
   return (
     <AppUI
