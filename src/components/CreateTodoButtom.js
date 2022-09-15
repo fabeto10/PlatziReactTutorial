@@ -3,7 +3,7 @@ import './CreateTodoButton.css';
 
 function CreateTodoButton(props) {
   const onClickButton = () => {
-    alert('hola')
+      props.setOpenModal(prevState => !prevState);
   } 
   return (
     <button 
@@ -12,6 +12,7 @@ function CreateTodoButton(props) {
     >
       +
     </button>
+
   );
 }
 
