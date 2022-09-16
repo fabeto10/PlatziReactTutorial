@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PlatziReactTutorial/static/css/main.91a3fa6d.css",
+    "main.js": "/PlatziReactTutorial/static/js/main.da367f2d.js",
+    "index.html": "/PlatziReactTutorial/index.html",
+    "main.91a3fa6d.css.map": "/PlatziReactTutorial/static/css/main.91a3fa6d.css.map",
+    "main.da367f2d.js.map": "/PlatziReactTutorial/static/js/main.da367f2d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91a3fa6d.css",
+    "static/js/main.da367f2d.js"
+  ]
+}
