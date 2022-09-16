@@ -7,7 +7,13 @@
     margin-top: 24px;
     box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
   }
-  
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
   .TodoItem-p {
     margin: 24px 0 24px 24px;
     width: calc(100% - 120px);

@@ -12,10 +12,10 @@ function TodoSearch() {
 
   return( 
     <input
-    className="TodoSearch" 
-    placeholder="Cebolla" 
-    value={searchValue}
-    onChange={onSearchValueChange}
+      className="TodoSearch" 
+      placeholder="Filtra tus tareas" 
+      value={searchValue}
+      onChange={onSearchValueChange}
     />
   );
 }

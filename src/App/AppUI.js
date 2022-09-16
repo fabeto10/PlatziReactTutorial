@@ -7,7 +7,7 @@ import { TodoItem } from "../components/TodoItem";
 import { CreateTodoButton } from "../components/CreateTodoButtom";
 import {Modal} from "../modal/index"
 import {TodoForm} from "../components/TodoForm"
-
+import './App.css';
 
 function AppUI() {
     const { 
@@ -26,9 +26,8 @@ function AppUI() {
             <TodoSearch />
                 <TodoList>
                         {error && <p>Desespérate, hubo un error...</p>}
-                        {loading && <p>Estamos cargando, no desesperes...</p>}
-                        {(!loading && !searchedTodos.length) && <p>¡Crea tu primer TODO!</p>}
-                        
+                        {loading && (<div className="icono"><p style={{fontSize: '2rem'}}>Cargando... Por favor espere.</p><i style={{fontSize: '10rem'}} className="fas fa-spinner"></i></div>)}
+                        {(!loading && !searchedTodos.length) && (<div className="icono"><p style={{fontSize: '2rem'}}>¡Crea tu primer TODO!</p><i style={{fontSize: '10rem'}} className="fas fa-cloud-upload-alt jump"></i></div>)}    
                         {searchedTodos.map(todo => (
                         <TodoItem
                             key={todo.text}

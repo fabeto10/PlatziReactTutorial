@@ -7,8 +7,8 @@ function CreateTodoButton(props) {
   } 
   return (
     <button 
-    className="CreateTodoButton"
-    onClick={onClickButton}
+      className="CreateTodoButton"
+      onClick={onClickButton}
     >
       +
     </button>

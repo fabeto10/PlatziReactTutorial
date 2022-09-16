@@ -4,12 +4,11 @@ import './TodoItem.css';
 function TodoItem(props) {
   return (
     <li className="TodoItem">
-      <span 
-      className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
-      onClick={props.onComplete} 
-      >
-        √
-      </span>
+      {`${!!props.completed ? 
+      <span className='material-symbols-outlined'>check_box</span> : 
+        <span class="material-symbols-outlined">
+        check_box_outline_blank
+      </span>}`}
       <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
         {props.text}
       </p>
